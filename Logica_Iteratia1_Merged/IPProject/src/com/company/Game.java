@@ -3,17 +3,17 @@ package com.company;
 import java.util.Arrays;
 
 public class Game {
-    private Player players[] = new Player[256];
+    private Player[] players = new Player[256];
     private int numberOfPlayers, numberOfRounds = 0, numberOfPlayersCurrentlyPlaying, numberOfFoundWinners, numberOfCardsOnTheTable;
-    private Player roundWinners[] = new Player[256];
-    private int cardsOnTheTable[] = new int[256];
-    private int colorsOfCardsOnTheTable[] = new int[256];
+    private Player[] roundWinners = new Player[256];
+    private int[] cardsOnTheTable = new int[256];
+    private int[] colorsOfCardsOnTheTable = new int[256];
     private boolean foundDrawn = false;
-    private int currentlyPlayingPlayersIndexes[] = new int[256];
-    private int cardsPutPerPlayer[][] = new int[256][256];
-    private int numberOfCardsPutPerPlayer[] = new int[256];
-    private int valueForCurrentGame[] = new int[256];
-    private int colorForCurrentGame[] = new int[256];
+    private int[] currentlyPlayingPlayersIndexes = new int[256];
+    private int[][] cardsPutPerPlayer = new int[256][256];
+    private int[] numberOfCardsPutPerPlayer = new int[256];
+    private int[] valueForCurrentGame = new int[256];
+    private int[] colorForCurrentGame = new int[256];
     private boolean gameEnded = false;
     private Player winner;
 
@@ -156,12 +156,12 @@ public class Game {
         this.colorForCurrentGame = colorForCurrentGame;
     }
 
-    public void removeArrayElement(int array[], int dimension, int index) {
+    public void removeArrayElement(int[] array, int dimension, int index) {
         for (int i = index; i < dimension - 1; ++i)
             array[i] = array[i + 1];
     }
 
-    public void removeArrayElements(int array[], int dimension, int index1, int index2) {
+    public void removeArrayElements(int[] array, int dimension, int index1, int index2) {
         int k = index2;
         int i = index1;
         int j = index2;
@@ -174,8 +174,8 @@ public class Game {
 
     public void playRound(int roundIndex) {
         int k = 0, maxCardValue = -1, numberOfFoundWinners = 0, p = 0;
-        int usefulArray[] = new int[256];
-        int usefulArrayColor[] = new int[256];
+        int[] usefulArray = new int[256];
+        int[] usefulArrayColor = new int[256];
         for (int i = 0; i < numberOfPlayers; ++i)
             if (players[i].getCurrentlyPlaying() && players[i].getCurrentNumberOfCards() > 0) {
                 cardsOnTheTable[k] = players[i].getCards()[0];
